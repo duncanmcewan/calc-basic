@@ -1,0 +1,161 @@
+
+
+/******************************************************/
+/*  TOP LEVEL CSS  */
+
+body {
+  overflow: scroll;  /*  Force scrollbar to avoid "flickering" between tabs  */
+  background-color: lightyellow;
+  color: darkgrey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;  /*  SETTING EXPLICIT DEFAULT  */
+  margin: 0;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+
+
+/*  RESULTS OUTPUT CSS  */
+#results {
+  height: 100px;
+  background-color: lightgrey;
+  color: red;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 3px solid darkgrey;
+  font-size: 3rem;
+  padding-top: 12px;
+  padding-right: 10px;
+}
+
+.p-medium {
+  font-size: 2rem !important;
+  padding-top: 25px !important;
+}
+
+.p-small {
+  font-size: 1.2rem !important;
+  padding-top: 35px !important;
+}
+
+
+
+/*  CALC BUTTON DEFINITIONS  */
+
+.calc-button {
+  height: 105px;
+  width: 105px;
+  background-color: lightgrey;
+  border-radius: 15%;
+  border: 3px solid darkgrey;
+  margin: 3px;
+}
+
+.zero {
+  background-image: url("../images/zero.png");
+  background-repeat: no-repeat;
+}
+
+.one {
+  background-image: url("../images/one.png");
+  background-repeat: no-repeat;
+}
+
+.two {
+  background-image: url("../images/two.png");
+  background-repeat: no-repeat;
+}
+
+.three {
+  background-image: url("../images/three.png");
+  background-repeat: no-repeat;
+}
+
+.four {
+  background-image: url("../images/four.png");
+  background-repeat: no-repeat;
+}
+
+.five {
+  background-image: url("../images/five.png");
+  background-repeat: no-repeat;
+}
+
+.six {
+  background-image: url("../images/six.png");
+  background-repeat: no-repeat;
+}
+
+.seven {
+  background-image: url("../images/seven.png");
+  background-repeat: no-repeat;
+}
+
+.eight {
+  background-image: url("../images/eight.png");
+  background-repeat: no-repeat;
+}
+
+.nine {
+  background-image: url("../images/nine.png");
+  background-repeat: no-repeat;
+}
+
+.point {
+  background-image: url("../images/point.png");
+  background-repeat: no-repeat;
+}
+
+.plus {
+  background-image: url("../images/plus.png");
+  background-repeat: no-repeat;
+}
+
+.minus {
+  background-image: url("../images/minus.png");
+  background-repeat: no-repeat;
+}
+
+.multiply {
+  background-image: url("../images/multiply.png");
+  background-repeat: no-repeat;
+}
+
+.divide {
+  background-image: url("../images/divide.png");
+  background-repeat: no-repeat;
+}
+
+.equals {
+  background-image: url("../images/equals.png");
+  background-repeat: no-repeat;
+}
+
+.cancel {
+  background-image: url("../images/cancel-long.png");
+  background-repeat: no-repeat;
+  width: 450px !important;
+  border-radius: 15px !important;
+}

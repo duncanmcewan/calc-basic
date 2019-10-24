@@ -77,6 +77,20 @@ function cancel() {
   return;
 }
 
+
+function fontSizeCheck() {
+  /*  Reduce font size in results section to avoid over-run on large numbers  */
+  resultFieldLen = document.getElementById("results").innerHTML.length;
+  if (resultFieldLen > 19) {
+    document.getElementById("results").classList.remove("p-medium");
+    document.getElementById("results").classList.add("p-small");
+  }
+  else if (resultFieldLen > 11) {
+    document.getElementById("results").classList.add("p-medium");
+  }
+}
+
+
 /***********************************/
 /*    PROCESSBUTTON FUNCTION       */
 /*    Syntax : processbutton(key)  */
@@ -106,15 +120,7 @@ function processButton (key) {
   var dSymb = symbolMap.get(key);
     var dNum = numKeyMap.get(key);
 
-  /*  Reduce font size in results section to avoid over-run on large numbers  */
-  if (resultFieldLen > 19) {
-    document.getElementById("results").classList.remove("p-medium");
-    document.getElementById("results").classList.add("p-small");
-  }
-  else if (resultFieldLen > 11) {
-    document.getElementById("results").classList.add("p-medium");
-  }
-
+  fontSizeCheck();
 
   /*  If CANCEL is pressed, re-initialise variables to a starting point  */
   if (key == "cancel") {
@@ -144,7 +150,7 @@ function processButton (key) {
       document.getElementById("results").classList.remove("p-medium");
       document.getElementById("results").classList.remove("p-small");
       document.getElementById("results").innerHTML = resultField;
-      resultFieldLen = document.getElementById("results").innerHTML.length;
+      fontSizeCheck();
     }
     else if (numKeyMap.has(key)) {
         resultField = numKeyMap.get(key).toString();
@@ -155,7 +161,7 @@ function processButton (key) {
         document.getElementById("results").classList.remove("p-medium");
         document.getElementById("results").classList.remove("p-small");
         document.getElementById("results").innerHTML = resultField;
-        resultFieldLen = document.getElementById("results").innerHTML.length;
+        fontSizeCheck();
     }
   }
   else if (numString1 !== undefined && numString2 === undefined  && symbol === undefined) {
@@ -166,13 +172,13 @@ function processButton (key) {
         pointUsed = true;
       }
       document.getElementById("results").innerHTML = resultField;
-      resultFieldLen = document.getElementById("results").innerHTML.length;
+      fontSizeCheck();
     }
     else if (symbolMap.has(key)) {
       resultField += symbolMap.get(key).toString();
       symbol = symbolMap.get(key);
       document.getElementById("results").innerHTML = resultField;
-      resultFieldLen = document.getElementById("results").innerHTML.length;
+      fontSizeCheck();
       pointUsed = false;
     }
   }
@@ -184,7 +190,7 @@ function processButton (key) {
       numString2 = "0.";
       pointUsed = true;
       document.getElementById("results").innerHTML = resultField;
-      resultFieldLen = document.getElementById("results").innerHTML.length;
+      fontSizeCheck();
     }
     else if (numKeyMap.has(key)) {
       resultField += numKeyMap.get(key).toString();
@@ -193,7 +199,7 @@ function processButton (key) {
           pointUsed = true;
         }
         document.getElementById("results").innerHTML = resultField;
-        resultFieldLen = document.getElementById("results").innerHTML.length;
+        fontSizeCheck();
     }
   }
   else if (numString1 !== undefined && symbol !== undefined && numString2 !== undefined ) {
@@ -204,7 +210,7 @@ function processButton (key) {
         pointUsed = true;
       }
       document.getElementById("results").innerHTML = resultField;
-      resultFieldLen = document.getElementById("results").innerHTML.length;
+      fontSizeCheck();
     }
     else if (symbolMap.has(key)  && key == "equals") {
       /*  Process calculation of entered numbers  */
@@ -214,19 +220,14 @@ function processButton (key) {
       numString2 = undefined;
       symbol = undefined;
       pointUsed = false;
+      document.getElementById("results").innerHTML = resultField;
     }
   }
   else {
     console.log("SOMETHING ODD HAPPENED!! : NUMSTRING1 - "+numString1+", NUMSTRING2 - "+numString2+"  SYMBOL : "+symbol);
   }
 
-  if (resultFieldLen > 19) {
-    document.getElementById("results").classList.remove("p-medium");
-    document.getElementById("results").classList.add("p-small");
-  }
-  else if (resultFieldLen > 11) {
-    document.getElementById("results").classList.add("p-medium");
-  }
+  fontSizeCheck();
 
   document.getElementById("results").innerHTML = resultField;
 

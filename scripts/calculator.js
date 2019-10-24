@@ -32,7 +32,7 @@ for (var i=0; i< numButtons; i++) {
 };
 
 /*  Add event listener to allow key presses to be used, as well as mouse clicks  */
-/*  Using "Keydown" to pick up the "traditional" Windows calc Escape to cancel keypress & ENter to equate to "="  */
+/*  Using "Keydown" to pick up the "traditional" Windows calc Escape to clear keypress & ENter to equate to "="  */
 document.addEventListener("keydown", function(event) {
     processKbClick(event.key);
 });
@@ -45,9 +45,9 @@ function processKbClick (key) {
   var validSymbols = ["+","-","/","*",".","=","Enter"];
   var validKey = false;
 
-  /*  If CANCEL is pressed, re-initialise variables to a starting point  */
+  /*  If clear is pressed, re-initialise variables to a starting point  */
   if (key == "Escape") {
-    cancel();
+    clear();
   }
 
   if (validNumbers.includes(key)) {
@@ -64,7 +64,7 @@ function processKbClick (key) {
 }
 
 
-function cancel() {
+function clear() {
   resultField = 0;
   resultFieldLen = 1;
   numString1 = undefined;
@@ -122,13 +122,13 @@ function processButton (key) {
 
   fontSizeCheck();
 
-  /*  If CANCEL is pressed, re-initialise variables to a starting point  */
-  if (key == "cancel") {
-    cancel();
+  /*  If clear is pressed, re-initialise variables to a starting point  */
+  if (key == "clear") {
+    clear();
   }
 
 
-  /*  You need to enter a number before pressing a symbol key - (except "Cancel")  */
+  /*  You need to enter a number before pressing a symbol key - (except "clear")  */
   if (numString1 === undefined && numString2 === undefined && symbolMap.has(key)) {
     alert("You need to press a number before a symbol !");
     return;
